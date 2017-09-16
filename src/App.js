@@ -6,6 +6,8 @@ import {
 } from 'react-router-dom'
 import Login from './lib/login'
 import NewUser from './lib/new-user'
+import Profile from './lib/profile'
+import UserWorkouts from './lib/user-workouts'
 
 const App = () => (
   <Router>
@@ -21,6 +23,8 @@ const App = () => (
 
       <Route exact path="/" component={ Login }/>
       <Route path="/new-user" component={ NewUser }/>
+      <Route path="/profile" component={ Profile }/>
+      <Route path="/user-workouts" component={ UserWorkouts }/>
     </div>
   </Router>
 )
