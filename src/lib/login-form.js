@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import createHistory from 'history/createBrowserHistory'
+const history = createHistory();
+
 
 class LoginForm extends Component {
   constructor(props) {
@@ -31,7 +34,8 @@ class LoginForm extends Component {
 
     axios.post('http://localhost:3000/login', params)
     .then( res => {
-      console.log(res.data);
+      localStorage.setItem('token', res.data.token)
+      history.push('/profile');
     })
     .catch(err => console.log(err))
   }
