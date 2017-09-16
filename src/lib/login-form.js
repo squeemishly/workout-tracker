@@ -23,12 +23,15 @@ class LoginForm extends Component {
   }
 
   handleSubmit(event) {
-    axios.post('http://localhost:3000/login', {
-      "email": this.state.email,
-      "password": this.state.password,
-    })
+    event.preventDefault();
+
+    const params = new URLSearchParams();
+    params.append('email', this.state.email);
+    params.append('password', this.state.password);
+
+    axios.post('http://localhost:3000/login', params)
     .then( res => {
-      debugger
+      console.log(res.data);
     })
     .catch(err => console.log(err))
   }
