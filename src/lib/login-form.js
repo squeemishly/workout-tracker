@@ -35,7 +35,7 @@ class LoginForm extends Component {
     axios.post('http://localhost:3000/login', params)
     .then( res => {
       localStorage.setItem('token', res.data.token)
-      history.push('/profile');
+      history.go('/profile');
     })
     .catch(err => console.log(err))
   }
