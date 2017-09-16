@@ -63,4 +63,4 @@ class NewUserForm extends Component {
   }
 }
 
-export default LoginForm
+export default NewUserForm
