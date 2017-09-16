@@ -7,7 +7,7 @@ class Login extends Component {
       <div>
         <h1>Login</h1>
         <LoginForm />
-        <a href="#">Click here to create an account</a>
+        <a href="/new-user">Click here to create an account</a>
       </div>
     )
   }
