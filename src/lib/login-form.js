@@ -28,23 +28,26 @@ class LoginForm extends Component {
       "email": this.state.name,
       "password": this.state.password,
     })
-    .then( user => {
-      console.log(user.data)
+    .catch(err => console.log(err))
+    .then( res => {
+      console.log(res)
     })
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <h1>Login</h1>
         <label>
           Email:
           <input type="text" value={this.state.name} onChange={this.handleNameChange.bind(this)} />
-        </label>
+        </label><br />
         <label>
           Password:
           <input type="text" value={this.state.password} onChange={this.handlePasswordChange.bind(this)} />
-        </label>
-        <input type="submit" value="Submit" />
+        </label><br />
+        <input type="submit" value="Submit" /><br />
+        <a href="#">Click here to create an account</a>
       </form>
     );
   }
