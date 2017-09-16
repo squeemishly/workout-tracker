@@ -7,7 +7,7 @@ class NewUser extends Component {
       <div>
         <h1>Create an Account</h1>
         <NewUserForm />
-        <a href="#">Click here to return to login form</a>
+        <a href="/">Click here to return to login form</a>
       </div>
     )
   }

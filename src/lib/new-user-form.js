@@ -43,7 +43,6 @@ class NewUserForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1>Login</h1>
         <label>
           Name:
           <input type="text" value={this.state.name} onChange={this.handleNameChange.bind(this)} />
@@ -57,7 +56,6 @@ class NewUserForm extends Component {
           <input type="text" value={this.state.password} onChange={this.handlePasswordChange.bind(this)} />
         </label><br />
         <input type="submit" value="Submit" /><br />
-        <a href="#">Click here to create an account</a>
       </form>
     );
   }
