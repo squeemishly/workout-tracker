@@ -4,7 +4,11 @@ import LoginForm from './login-form'
 class Login extends Component {
   render() {
     return (
-      <LoginForm />
+      <div>
+        <h1>Login</h1>
+        <LoginForm />
+        <a href="#">Click here to create an account</a>
+      </div>
     )
   }
 }
