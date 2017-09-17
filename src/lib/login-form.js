@@ -34,7 +34,8 @@ class LoginForm extends Component {
 
     axios.post('http://localhost:3000/login', params)
     .then( res => {
-      localStorage.setItem('token', res.data.token)
+      const userInfo = { "id": res.data.id, "token": res.data.token }
+      localStorage.setItem('userInfo', JSON.stringify(userInfo))
       history.go('/profile');
     })
     .catch(err => console.log(err))

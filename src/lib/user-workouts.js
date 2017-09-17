@@ -1,11 +1,53 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 class UserWorkouts extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      allWorkouts: []
+    }
+  }
+
+  sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
+
+  componentDidMount() {
+    const { id, token } = JSON.parse(localStorage.getItem('userInfo'))
+    axios.get(`http://localhost:3000/api/v1/users/${id}/workouts`, {
+      params: {
+        token: token
+      }
+    })
+    .then( workouts => {
+      workouts.data.forEach( workout => this.state.allWorkouts.push(workout) )
+      this.forceUpdate()
+    })
+    .catch(err => console.error(err))
+  }
+
   render() {
     return (
       <div>
-        <h2>Boudi the cat!</h2>
+        <h2>Workouts</h2>
+        {this.state.allWorkouts.map(workout => {
+          return (
+            <div key={workout.id} className="workout">
+              Date: { workout.date }<br/>
+              Focus: { workout.focus }<br/>
+              Lifts: { workout.lifts.map( (lift, index) => {
+                return (
+                  <div key={index} className="lift">
+                    Name: { lift.name }
+                    Reps: { lift.reps }
+                    Weight: { lift.weight }
+                  </div>
+                )
+              })}
+            </div>
+          )
+        })}
       </div>
     )
   }
