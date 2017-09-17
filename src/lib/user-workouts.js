@@ -19,16 +19,25 @@ class UserWorkouts extends Component {
       }
     })
     .then( workouts => {
-      this.setState({
-        allWorkouts: workouts.data
-      })
+      this.setState(this.state.allWorkouts: workouts)
     })
+    // .then( workouts => workouts.data.forEach( workout => this.state.allWorkouts.push(workout) ))
   }
 
   render() {
     return (
       <div>
-        <h2>Boudi the cat!</h2>
+        <h2>Workouts</h2>
+        {this.state.allWorkouts.map(workout => {
+          return (
+            <div className="workout">
+              Date: { workout.date }<br/>
+              Focus: { workout.focus }<br/>
+              Lifts: { workout.lifts }
+              })}
+            </div>
+          )
+        })}
       </div>
     )
   }
