@@ -38,7 +38,7 @@ class UserWorkouts extends Component {
     return `${month}/${day}/${year}`
   }
 
-  onClick() {
+  handleToggleClick() {
     this.setState({ liftsVisible: !this.state.liftsVisible })
   }
 
@@ -61,7 +61,7 @@ class UserWorkouts extends Component {
             <div key={workout.id} className="workout">
               <span className="date">Date: { this.dateFormatter(workout.date) }</span><br/>
               <span className="focus">Focus: { workout.focus }</span><br/>
-              <div onClick={() => this.onClick()}> Lifts </div>
+              <div onClick={() => this.handleToggleClick()}> Lifts </div>
                 {
                   this.state.liftsVisible ? this.showLifts(workout.lifts) : null
                 }
