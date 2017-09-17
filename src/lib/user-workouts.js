@@ -61,7 +61,7 @@ class UserWorkouts extends Component {
             <div key={workout.id} className="workout">
               <span className="date">Date: { this.dateFormatter(workout.date) }</span><br/>
               <span className="focus">Focus: { workout.focus }</span><br/>
-              <div onClick={() => this.handleToggleClick()}> Lifts </div>
+              <div onClick={() => this.handleToggleClick()}> Click to View Lifts </div>
                 {
                   this.state.liftsVisible ? this.showLifts(workout.lifts) : null
                 }
