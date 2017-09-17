@@ -5,7 +5,8 @@ class UserWorkouts extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      allWorkouts: []
+      allWorkouts: [],
+      liftsVisible: false,
     }
   }
 
@@ -37,6 +38,20 @@ class UserWorkouts extends Component {
     return `${month}/${day}/${year}`
   }
 
+  onClick() {
+    this.setState({ liftsVisible: !this.state.liftsVisible })
+  }
+
+  showLifts(workout) {
+    return workout.map( (lift, index) => {
+      return (
+        <div key={index} className="lift">
+        { lift.name }: { lift.reps } reps at { lift.weight }<br/>
+        </div>
+      )
+    })
+  }
+
   render() {
     return (
       <div>
@@ -46,13 +61,10 @@ class UserWorkouts extends Component {
             <div key={workout.id} className="workout">
               <span className="date">Date: { this.dateFormatter(workout.date) }</span><br/>
               <span className="focus">Focus: { workout.focus }</span><br/>
-              Lifts { workout.lifts.map( (lift, index) => {
-                return (
-                  <div key={index} className="lift">
-                    { lift.name }: { lift.reps } reps at { lift.weight }<br/>
-                  </div>
-                )
-              })}
+              <div onClick={() => this.onClick()}> Lifts </div>
+                {
+                  this.state.liftsVisible ? this.showLifts(workout.lifts) : null
+                }
             </div>
           )
         })}
