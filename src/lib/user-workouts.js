@@ -25,9 +25,7 @@ class UserWorkouts extends Component {
 
   componentDidMount() {
     this.getWorkouts()
-    .then( workouts => {
-      this.setAllWorkouts(workouts)
-    })
+    .then( workouts => { this.setAllWorkouts(workouts) })
     .catch(err => console.error(err))
   }
 
@@ -46,9 +44,9 @@ class UserWorkouts extends Component {
         {this.state.allWorkouts.map(workout => {
           return (
             <div key={workout.id} className="workout">
-              Date: { this.dateFormatter(workout.date) }<br/>
-              Focus: { workout.focus }<br/>
-              Lifts: { workout.lifts.map( (lift, index) => {
+              <span className="date">Date: { this.dateFormatter(workout.date) }</span><br/>
+              <span className="focus">Focus: { workout.focus }</span><br/>
+              Lifts { workout.lifts.map( (lift, index) => {
                 return (
                   <div key={index} className="lift">
                     { lift.name }: { lift.reps } reps at { lift.weight }<br/>
