@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import createHistory from 'history/createBrowserHistory'
+const history = createHistory();
+
 
 class LoginForm extends Component {
   constructor(props) {
@@ -23,15 +26,19 @@ class LoginForm extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
 
-    axios.post('http://localhost:3000/login', {
-      "email": this.state.email,
-      "password": this.state.password,
+    const params = new URLSearchParams();
+    params.append('email', this.state.email);
+    params.append('password', this.state.password);
+
+    axios.post('http://localhost:3000/login', params)
+    .then( res => {
+      const userInfo = { "id": res.data.id, "token": res.data.token }
+      localStorage.setItem('userInfo', JSON.stringify(userInfo))
+      history.go('/profile');
     })
     .catch(err => console.log(err))
-    .then( res => {
-      console.log(res)
-    })
   }
 
   render() {
