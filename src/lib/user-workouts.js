@@ -27,6 +27,14 @@ class UserWorkouts extends Component {
     .catch(err => console.error(err))
   }
 
+  dateFormatter(val) {
+    const vals = val.split('-')
+    const year = vals[0]
+    const month = vals[1]
+    const day = vals[2].split('T')[0]
+    return `${month}/${day}/${year}`
+  }
+
   render() {
     return (
       <div>
@@ -34,14 +42,12 @@ class UserWorkouts extends Component {
         {this.state.allWorkouts.map(workout => {
           return (
             <div key={workout.id} className="workout">
-              Date: { workout.date }<br/>
+              Date: { this.dateFormatter(workout.date) }<br/>
               Focus: { workout.focus }<br/>
               Lifts: { workout.lifts.map( (lift, index) => {
                 return (
                   <div key={index} className="lift">
-                    Name: { lift.name }
-                    Reps: { lift.reps }
-                    Weight: { lift.weight }
+                    { lift.name }: { lift.reps } reps at { lift.weight }<br/>
                   </div>
                 )
               })}
