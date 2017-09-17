@@ -22,3 +22,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }*/
+
+.workout {
+  border: red solid 2px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.date, .focus {
+  font-weight: bold;
+  font-size: 1.1em;
+}
