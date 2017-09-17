@@ -18,7 +18,8 @@ const App = () => (
         <ul>
           <li><Link to='#'>My Workouts</Link></li>
           <li><Link to='#'>All Lifts</Link></li>
-          <li><Link to='/'>Sign Up or Login</Link></li>
+          { localStorage.getItem('userInfo') && <li><Link to='/'>Logout</Link></li> }
+          { !localStorage.getItem('userInfo') && <li><Link to='/'>Sign Up or Login</Link></li> }
         </ul>
       </nav>
 
