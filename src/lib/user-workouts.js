@@ -9,20 +9,24 @@ class UserWorkouts extends Component {
     }
   }
 
-  sleep(time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
-  }
-
-  componentDidMount() {
+  getWorkouts() {
     const { id, token } = JSON.parse(localStorage.getItem('userInfo'))
-    axios.get(`http://localhost:3000/api/v1/users/${id}/workouts`, {
+    return axios.get(`http://localhost:3000/api/v1/users/${id}/workouts`, {
       params: {
         token: token
       }
     })
+  }
+
+  setAllWorkouts(workouts) {
+    workouts.data.forEach( workout => this.state.allWorkouts.push(workout) )
+    this.forceUpdate()
+  }
+
+  componentDidMount() {
+    this.getWorkouts()
     .then( workouts => {
-      workouts.data.forEach( workout => this.state.allWorkouts.push(workout) )
-      this.forceUpdate()
+      this.setAllWorkouts(workouts)
     })
     .catch(err => console.error(err))
   }
