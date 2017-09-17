@@ -8,6 +8,7 @@ import Login from './lib/login'
 import NewUser from './lib/new-user'
 import Profile from './lib/profile'
 import UserWorkouts from './lib/user-workouts'
+import './App.css';
 
 const App = () => (
   <Router>
