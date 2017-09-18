@@ -24,7 +24,7 @@
 }*/
 
 .workout {
-  border: red solid 2px;
+  /*border: red solid 2px;*/
   margin-bottom: 10px;
   padding-bottom: 5px;
 }
@@ -32,4 +32,8 @@
 .date, .focus {
   font-weight: bold;
   font-size: 1.1em;
+}
+
+.lift {
+  margin-bottom: 10px;
 }

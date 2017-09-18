@@ -4,7 +4,9 @@ class Lift extends Component {
   render() {
     return <div>
         <ul>
-          { this.props.lifts.map( (lift, idx) => <li key={ idx }>{ lift.name }, { lift.reps }, { lift.weight }</li>) }
+          { this.props.lifts.map( (lift, idx) => <li key={ idx } className="lift">Name: { lift.name }<br/>
+                                                                  Reps: { lift.reps }<br/>
+                                                                  Weight: { lift.weight }</li>) }
         </ul>
       </div>
   }
