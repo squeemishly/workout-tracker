@@ -25,19 +25,23 @@ class LoginForm extends Component {
     this.setState({password: event.target.value});
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-
+  handleAPILogin() {
     const params = new URLSearchParams();
     params.append('email', this.state.email);
     params.append('password', this.state.password);
+    return axios.post('http://localhost:3000/login', params)
+  }
 
-    axios.post('http://localhost:3000/login', params)
-    .then( res => {
-      const userInfo = { "id": res.data.id, "token": res.data.token }
-      localStorage.setItem('userInfo', JSON.stringify(userInfo))
-      history.push('/profile');
-    })
+  createUserInfoCookie(res) {
+    const userInfo = { "id": res.data.id, "token": res.data.token }
+    localStorage.setItem('userInfo', JSON.stringify(userInfo))
+    history.push('/profile');
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.handleAPILogin()
+    .then( res => { this.createUserInfoCookie(res) })
     .catch(err => console.log(err))
   }
 
