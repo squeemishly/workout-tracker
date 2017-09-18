@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import createHistory from 'history/createBrowserHistory'
+const history = createHistory();
 
 class NewUserForm extends Component {
   constructor(props) {
@@ -28,16 +30,18 @@ class NewUserForm extends Component {
   }
 
   handleSubmit(event) {
+    const params = new URLSearchParams()
+    params.append('name', this.state.name)
+    params.append('email', this.state.email)
+    params.append('password', this.state.password)
 
-    axios.post('http://localhost:3000/api/v1/users', {
-      "name": this.state.name,
-      "email": this.state.email,
-      "password": this.state.password,
+    axios.post('http://localhost:3000/api/v1/users', params)
+    .then( res => {
+      const userInfo = { "id": res.data.id, "token": res.data.token }
+      localStorage.setItem('userInfo', JSON.stringify(userInfo))
+      history.push('/profile');
     })
     .catch(err => console.log(err))
-    .then( res => {
-      console.log(res)
-    })
   }
 
   render() {
