@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import PasswordMask from 'react-password-mask'
 import createHistory from 'history/createBrowserHistory'
-const history = createHistory();
+const history = createHistory()
 
 
 class LoginForm extends Component {
@@ -50,11 +51,19 @@ class LoginForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Email:
-          <input type="text" value={this.state.email} onChange={this.handleEmailChange.bind(this)} />
+          <input
+            type="text"
+            value={this.state.email} onChange={this.handleEmailChange.bind(this)} />
         </label><br />
         <label>
           Password:
-          <input type="text" value={this.state.password} onChange={this.handlePasswordChange.bind(this)} />
+          <PasswordMask
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            value={this.state.password}
+            onChange={this.handlePasswordChange.bind(this)}
+          />
         </label><br />
         <input type="submit" value="Submit" /><br />
       </form>

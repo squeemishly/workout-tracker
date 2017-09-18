@@ -54,15 +54,27 @@ class NewUserForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
-          <input type="text" value={this.state.name} onChange={this.handleNameChange.bind(this)} />
+          <input
+            type="text"
+            value={this.state.name}
+            onChange={this.handleNameChange.bind(this)} />
         </label><br />
         <label>
           Email:
-          <input type="text" value={this.state.email} onChange={this.handleEmailChange.bind(this)} />
+          <input
+            type="text"
+            value={this.state.email}
+            onChange={this.handleEmailChange.bind(this)} />
         </label><br />
         <label>
           Password:
-          <input type="text" value={this.state.password} onChange={this.handlePasswordChange.bind(this)} />
+          <PasswordMask
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            value={this.state.password}
+            onChange={this.handlePasswordChange.bind(this)}
+          />
         </label><br />
         <input type="submit" value="Submit" /><br />
       </form>
