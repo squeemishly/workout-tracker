@@ -11,12 +11,11 @@ Contact [Squee](https://github.com/squeemishly). She's responsible for this amaz
 ## Setup!
 Let's get this login logging in!
 
-git clone the [backend](https://github.com/squeemishly/workout-tracker-api)
+- git clone the [backend](https://github.com/squeemishly/workout-tracker-api)
 - Follow the setup instructions for the backend to get it up and running
-
-git clone this repo
-npm install
-npm start to see the magic
+- git clone this repo
+- npm install
+- npm start to see the magic
 
 
 ## Stack
