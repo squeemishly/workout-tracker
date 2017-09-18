@@ -37,12 +37,16 @@ class NewUserForm extends Component {
     return axios.post('http://localhost:3000/api/v1/users', params)
   }
 
+  createUserInfoCookie(res) {
+    const userInfo = { "id": res.data.id, "token": res.data.token }
+    localStorage.setItem('userInfo', JSON.stringify(userInfo))
+    history.push('/profile');
+  }
+
   handleSubmit(event) {
     this.handleNewUserAPICall()
     .then( res => {
-      const userInfo = { "id": res.data.id, "token": res.data.token }
-      localStorage.setItem('userInfo', JSON.stringify(userInfo))
-      history.push('/profile');
+      this.createUserInfoCookie(res)
     })
     .catch(err => console.log(err))
   }
