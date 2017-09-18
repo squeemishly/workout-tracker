@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Workout from './workout';
 
 class UserWorkouts extends Component {
   constructor(props) {
@@ -56,18 +57,15 @@ class UserWorkouts extends Component {
     return (
       <div>
         <h2>Workouts</h2>
-        {this.state.allWorkouts.map(workout => {
-          return (
-            <div key={workout.id} className="workout">
-              <span className="date">Date: { this.dateFormatter(workout.date) }</span><br/>
-              <span className="focus">Focus: { workout.focus }</span><br/>
-              <div onClick={() => this.handleToggleClick()}> Click to View Lifts </div>
-                {
-                  this.state.liftsVisible ? this.showLifts(workout.lifts) : null
-                }
-            </div>
-          )
-        })}
+        { 
+          this.state.allWorkouts.map(workout =>
+            <Workout
+              key={ workout.id.toString() }
+              date={ workout.date }
+              focus={ workout.focus }
+              lifts={ workout.lifts }
+            />) 
+        }
       </div>
     )
   }
