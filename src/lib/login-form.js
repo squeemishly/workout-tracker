@@ -41,9 +41,7 @@ class LoginForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.handleAPILogin()
-    .then( res => {
-      this.createUserInfoCookie(res)
-    })
+    .then( res => { this.createUserInfoCookie(res) })
     .catch(err => console.log(err))
   }
 
