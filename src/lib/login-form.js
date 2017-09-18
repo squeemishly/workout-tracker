@@ -50,9 +50,10 @@ class LoginForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Email:
+          Email:<br />
           <input
             type="text"
+            className="input-field"
             value={this.state.email} onChange={this.handleEmailChange.bind(this)} />
         </label><br />
         <label>
@@ -60,12 +61,16 @@ class LoginForm extends Component {
           <PasswordMask
             id="password"
             name="password"
+            className="input-field"
             placeholder="Enter password"
             value={this.state.password}
             onChange={this.handlePasswordChange.bind(this)}
           />
         </label><br />
-        <input type="submit" value="Submit" /><br />
+        <input
+          type="submit"
+          className="btn btn-submit"
+          value="Submit" /><br />
       </form>
     );
   }

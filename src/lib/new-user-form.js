@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import PasswordMask from 'react-password-mask'
 import createHistory from 'history/createBrowserHistory'
 const history = createHistory();
 
@@ -53,16 +54,18 @@ class NewUserForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
+          Name:<br />
           <input
             type="text"
+            className="input-field"
             value={this.state.name}
             onChange={this.handleNameChange.bind(this)} />
         </label><br />
         <label>
-          Email:
+          Email:<br />
           <input
             type="text"
+            className="input-field"
             value={this.state.email}
             onChange={this.handleEmailChange.bind(this)} />
         </label><br />
@@ -71,12 +74,16 @@ class NewUserForm extends Component {
           <PasswordMask
             id="password"
             name="password"
+            className="input-field"
             placeholder="Enter password"
             value={this.state.password}
             onChange={this.handlePasswordChange.bind(this)}
           />
         </label><br />
-        <input type="submit" value="Submit" /><br />
+        <input
+          type="submit"
+          className="btn btn-submit"
+          value="Submit" /><br />
       </form>
     );
   }

@@ -37,3 +37,21 @@
 .lift {
   margin-bottom: 10px;
 }
+
+#password {
+  max-width: 85%;
+}
+
+.input-field {
+  width: 85%;
+  margin-bottom: 10px;
+}
+
+.btn {
+  font-size: 16px;
+  background-color: lightgray;
+  border: none;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
