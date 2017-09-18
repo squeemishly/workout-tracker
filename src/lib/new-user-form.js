@@ -45,6 +45,7 @@ class NewUserForm extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault()
     this.handleNewUserAPICall()
     .then( res => { this.createUserInfoCookie(res) })
     .catch(err => console.log(err))
