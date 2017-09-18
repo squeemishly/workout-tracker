@@ -36,13 +36,13 @@ class LoginForm extends Component {
   createUserInfoCookie(res) {
     const userInfo = { "id": res.data.id, "token": res.data.token }
     localStorage.setItem('userInfo', JSON.stringify(userInfo))
-    history.push('/profile');
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.handleAPILogin()
     .then( res => { this.createUserInfoCookie(res) })
+    .then( () => { history.push('/profile'); })
     .catch(err => console.log(err))
   }
 
