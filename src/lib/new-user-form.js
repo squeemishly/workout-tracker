@@ -29,13 +29,16 @@ class NewUserForm extends Component {
     this.setState({password: event.target.value});
   }
 
-  handleSubmit(event) {
+  handleNewUserAPICall() {
     const params = new URLSearchParams()
     params.append('name', this.state.name)
     params.append('email', this.state.email)
     params.append('password', this.state.password)
+    return axios.post('http://localhost:3000/api/v1/users', params)
+  }
 
-    axios.post('http://localhost:3000/api/v1/users', params)
+  handleSubmit(event) {
+    this.handleNewUserAPICall()
     .then( res => {
       const userInfo = { "id": res.data.id, "token": res.data.token }
       localStorage.setItem('userInfo', JSON.stringify(userInfo))
