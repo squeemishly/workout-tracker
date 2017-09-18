@@ -29,3 +29,13 @@ Have you seen that sweet, sweet login form? Because seriously, that is some swee
 After you login, currently, you have to manually visit /profile to see your profile. Once you do though, WOOOO-EEEEE!!! There's a ridiculously awesome See All Workouts button!!! Click that button, and you've got a list of workouts.
 Ready for some magic? Because if you click that very appropriately named Click to View Lifts link, you'll get to see any lifts added to a workout. Neat!
 How do you add lifts to a workout? How do you even make a workout? Hold your ruddy horses there my friend. I haven't gotten that far yet... Look to the coming attractions section of this loquacious README.
+
+
+## Coming Attractions
+- Users can create workouts!
+- Users can add lifts to workouts!
+- Users can determine how many sets they'll do for each lift!
+- Users can determine how much weight they'll be moving for each set!
+- Users can see a single lift! Where they can edit the sets and weight!
+- Users /MAY/, one day, be able to add an actual column. There they can record how much weight and how many sets they /ACTUALLY/ did for each lift!
+- World Peace!
